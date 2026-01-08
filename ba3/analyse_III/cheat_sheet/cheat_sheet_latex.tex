@@ -1,0 +1,371 @@
+\documentclass[10pt,a4paper,twocolumn]{article}
+\usepackage[margin=0.1cm]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{titlesec}
+\setlist{nosep}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+% Réduction maximale des espaces autour des sections et subsections
+\titlespacing*{\section}{0pt}{1pt}{0pt}
+\titlespacing*{\subsection}{0pt}{1pt}{0pt}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
+\titleformat{\section}
+  {\normalfont\small\bfseries}{\thesection}{0.3em}{}
+\titleformat{\subsection}
+  {\normalfont\footnotesize\bfseries}{\thesubsection}{0.3em}{}
+\titleformat{\subsubsection}
+  {\normalfont\scriptsize\bfseries}{\thesubsubsection}{0.3em}{}
+\begin{document}
+\section*{1. Les opérateurs différentiels de la physique}
+
+
+\operatorname{grad} f= Df= \nabla f = \left(\frac{\partial f}{\partial x_1},\dots,\frac{\partial f}{\partial x_n}\right)
+($f\in $\mathcal{C}^1$: \Omega \subseteq\mathbb{R}^n \to \mathbb{R}$) \\
+nabla: \nabla = \left(\frac{\partial}{\partial x_1},\dots,\frac{\partial }{\partial x_n}\right)
+\newline
+\operatorname{div} F=\nabla \bullet F = \langle \nabla, F \rangle =\sum_{i=1}^n \frac{\partial F_i}{\partial x_i} \: (F \in \mathcal{C}^1 (\Omega, \mathbb{R}^n), \Omega \subseteq \mathbb{R}^n: ouvert)
+\newline
+\Omega \in \mathbb{R}^m: $ouvert$; F,G \in \mathcal{C}^1(\Omega,\mathbb{R}^n):\newline
+\forall 1\leqslant i \leqslant m: \frac{\partial}{\partial x_i}[\langle F, G \rangle] =\langle \frac{\partial}{\partial x_i}F, G\rangle + \langle F, \frac{\partial}{\partial x_i}G \rangle \newline
+\forall 1\leqslant i \leqslant m: \frac{\partial}{\partial x_i}[ F \times G ] = \frac{\partial}{\partial x_i}F \times G +  F \times \frac{\partial}{\partial x_i}G  \newline
+\Omega\in \mathbb{R}^n,\Omega'\in \mathbb{R}^m,f\in\mathcal{C}^1(\Omega'), g=(g_1,\dots,g_n)\in\mathcal{C}^1(\Omega,\mathbb{R}^m) $tq g(\Omega)\in \Omega' $, f\circ g \in \mathcal{C}^1(\Omega)$ on a:
+\newline
+\textbf{Chain rule: } \forall 1\leq i \leq n: \: \frac{\partial f \circ g}{\partial x_i} = \sum_{j=1}^n \frac{\partial f}{\partial x_j}(g(x)) \frac{\partial g_j}{\partial x_i}(x)
+\newline
+n=2: $\displaystyle \operatorname{rot} F = \frac{\partial F_{2}}{\partial x} - \frac{\partial F_{1}}{\partial y}$
+\newline
+n=3: $ \operatorname{rot} F = \nabla \times F = \left(
+\frac{\partial F_{3}}{\partial y} - \frac{\partial F_{2}}{\partial z},
+\frac{\partial F_{1}}{\partial z} - \frac{\partial F_{3}}{\partial x},
+\frac{\partial F_{2}}{\partial x} - \frac{\partial F_{1}}{\partial y}\right)$
+\newline
+laplacien=\Delta f = \sum_{i=1}^n \frac{\partial^2 f}{\partial x_i^2}
+\: (\Omega \subseteq \mathbb{R}^n: ouvert, f\in \mathcal{C}^2(\Omega) )\newline
+\Omega \subseteq \mathbb{R}^n: ouvert,f \in \mathcal{C}^2 (\Omega), F \in \mathcal{C}^2 (\Omega, \mathbb{R}^3):
+\newline
+\Delta f = \operatorname{div}(\nabla f), \:
+\operatorname{rot}(\nabla f)=0, \:
+\operatorname{div}(\operatorname{rot}F)=0
+\newline
+\operatorname{div}(f\operatorname{grad}g)=f\Delta g+ \operatorname{grad}f \cdot \operatorname{grad}g \:(f\in\mathcal{C}^1(\Omega), g\in\mathcal{C}^2(\Omega))\newline
+\operatorname{div}(fg)= f\operatorname{grad}g + g\operatorname{grad} f\: (f,g\in \mathcal{C}^1(\Omega))\newline
+\operatorname{div}(fF)= f\operatorname{div}F + F\cdot\operatorname{grad}f \newline
+\operatorname{rot}(fF)= \operatorname{grad}f \times F+ f\operatorname{rot}F\: (f\in\mathcal{C}^1(\Omega), F\in\mathcal{C}^1(\Omega,\mathbb{R}^3))\newline
+\operatorname{rot}\operatorname{rot}F= -\Delta F + \operatorname{grad} \operatorname{div} F (\Delta F= (\Delta F_1, \Delta F_2, \Delta F_3), \in \mathcal{C}^2(\Omega,\mathbb{R}^3))
+
+
+
+\section*{2. Intégrales curvilignes, champs qui dérivent d'un potentiel}
+
+\subsection*{2.1 Courbes dans $\mathbb{R}^n$}
+\Gamma \subseteq \mathbb{R}^n$: courbe régulière$ \Leftrightarrow \newline 
+\exists [a,b] \subseteq \mathbb{R}, \gamma: [a,b] \to \mathbb{R}^n: \gamma(t) =\left(\gamma_1(t),\dots,\gamma_n(t)): 
+
+1.\:\Gamma= \gamma([a,b])= \{x \in \mathbb{R}^n: \exists t \in [a,b]:  \gamma(t)=x\}
+\newline
+2.\:\gamma \in \mathcal{C}^1([a,b],\mathbb{R}^n)
+\newline
+3.\:|\gamma'(t)| = \sqrt{ \gamma_1'(t)^2 + \dots + \gamma_n'(t)^2}
+\newline
+\Gamma \subseteq \mathbb{R}^n$: courbe $\textbf{simple} \Leftrightarrow $ régulière + $ \exists\gamma $ injective sur$ [a,b[
+\newline 
+\Gamma \subseteq \mathbb{R}^n$: courbe $\textbf{fermée} \Leftrightarrow $ régulière + $ \forall\gamma: \gamma(a) = \gamma(b)
+\newline 
+\Gamma $: rég./morceaux $ \Leftrightarrow \exists$k \in \mathbb{N}_{>0} : \Gamma= \bigcup_{i=1}^k \Gamma_i ( $\Gamma_i: rég.$)
+
+\subsection*{2.2 Intégrales curvilignes}
+\Omega \subseteq \mathbb{R}^n,\: \Gamma: \operatorname{rég.} \subseteq \Omega, \gamma: [a,b] \to \Gamma
+\newline
+\int_ \Gamma f\ell = \int_a^b f(\gamma(t))|\gamma'(t)|\,dt , f \in \mathcal{C}^0(\Omega) $ (trkl sens de \gamma)$
+\newline 
+\int_ \Gamma F \bullet \ell = \int_a^b \langle F(\gamma(t));\gamma'(t)| \rangle \,dt , F \in \mathcal{C}^0(\Omega, \mathbb{R}^n) $ (sens de \gamma !)$
+\newline
+longueur(\Gamma)= \int_\Gamma 1 \,d\ell=\int_a^b \|\gamma'(t)\| \,dt
+\newline
+\int_ \Gamma f \,d\ell  =\sum_{i=1}^k \int_ {\Gamma_i} f \,d\ell ;
+\int_ \Gamma F \bullet \,d\ell =\sum_{i=1}^k \int_ {\Gamma_i} F \bullet \,d\ell 
+
+\subsection*{2.3 Champs qui dérivent d'un potentiel}
+\Omega \subseteq \mathbb{R}^n: ouvert, F \in \mathcal{C}^0(\Omega, \mathbb{R}^n)\newline
+$dérive d'un potentiel$ \Leftrightarrow \exists f \in \mathcal{C}^1(\Omega): \nabla f= F $ dans \Omega ("\nexists! f")
+\newline
+\nabla f= F \Rightarrow  \int_\Gamma F \bullet \, d\ell = f(\gamma(b))- f(\gamma(a))  \: ( \gamma: [a,b] \to \Gamma)
+\newline
+\nabla f= F \Rightarrow \forall 1\leq i,j \leq n, \forall x \in \Omega: \frac{\partial F_i}{\partial x_j}(x) = \frac{\partial F_j}{\partial x_i}(x) 
+\newline
+\frac{\partial F_i}{\partial x_j}(x) = \frac{\partial F_j}{\partial x_i}(x) \wedge \left(\Omega: $ convexe \subset $ simp.cnctd $) \Rightarrow \nabla f= F  
+\newline
+\Leftrightarrow 
+$ F dérive d'un potentiel sur $\Omega
+\newline
+\Leftrightarrow 
+\forall $A,B$\in \Omega; \Gamma_1, \Gamma_2 \subseteq \Omega $(rég;joinA,B)\int_ {\Gamma_1} F \bullet \,d\ell= \int_ {\Gamma_2} F \bullet \,d\ell
+\newline
+\Leftrightarrow \forall \Gamma \subseteq \Omega $(rég.\&fermée):$ \int_ {\Gamma} F \bullet \,d\ell= 0
+\newline
+\textbf{F dérive d'un potentiel?}\newline
+1.\: \operatorname{rot} f \neq 0 \Rightarrow $Non \newline
+2. \Omega$ simply connected (simp.cnctd)? : pas de trous $ \Rightarrow $ Oui$ \newline
+3.1\:f$=?, f(x,y,z)= $\int^x F_1(t,y,z) \, dt + \alpha(y,z) $(\alpha=?)$ !ok? \to 3.2 \newline
+3.2 \: \Gamma \subseteq \Omega $ rég.\&fermé: entoure UN trou de $ \Omega, \newline \left(\int_ \Gamma F \bullet \, d\ell \neq 0) ? \Rightarrow $ Non : $ \to $(autre trou? 3.2(trou): 3.1 )
+\subsection*{2.4 Théorème de Green}
+\partial\Omega= \{x\in \mathbb{R}^n: \forall \epsilon >0: B_{\epsilon}(x) \cap \Omega \neq \emptyset, B_{\epsilon}(x) \cap \Omega^c \neq \emptyset \} \newline B_{\epsilon}(x)= \{y \in \mathbb{R}^n : |x-y|< \epsilon \}; \overline{\Omega}= \Omega \cup \partial \Omega 
+\newline
+\partial \Omega$:simp,ferm,rég: orienté +/-$\to\gamma$ laisse domaine à gauch/d$
+\newline
+\Omega \subseteq \mathbb{R}^2 $ ouvert \& borné = $ \textbf{domaine régulier}\newline
+\Leftrightarrow \exists n\in \mathbb{N}, \exists \Omega_i$: ouverts \& bornés:$ \newline
+1. \: \forall 1 \leq j \leq n: \overline{\Omega_j} \subseteq \Omega_0
+\newline
+2. \: \forall 1 \leq i \neq j \leq n: \overline{\Omega_j} \cap \overline{\Omega_j} =\emptyset
+\newline
+3. \: \Omega=\Omega_0 \setminus (\bigcup_{i=1}^n \overline{\Omega_i})
+\newline
+4. \: \forall 0 \leq j \leq n: \partial\Omega_j = \Gamma_j $ : courbe simple, fermée, rég.$
+\newline
+\textbf{Green:}, \Omega \subseteq  \mathbb{R}^2 $:\textbf{rég}; $\partial\Omega  \textbf{ orienté pos.} $ ; $ F\in\mathcal{C}^1(\overline{\Omega},\mathbb{R}^2)
+\newline \int \int_\Omega \operatorname{rot} F(x,y)\,dx\,dy = \int_{\partial\Omega} F \bullet \,d\ell \newline 
+\to \iint_\Omega \Delta f(x,y)\,dx\,dy= \int_{\partial \Omega} (\operatorname{grad} f\cdot \nu)\,d\ell, f\in\mathcal{C}^2(\bar{\Omega}) \newline
+\iint_\Omega \operatorname{div} F(x,y)\,dx\,dy =\int_{\partial\Omega} (F\cdot \nu) \,d\ell \:(\nu $ ext. unit normals to \partial \Omega)
+\subsection*{2.5 Corollaires du Théorème de Green}
+\Omega \subseteq \mathbb{R}^2$;x_0$ \in \partial\Omega, \nu_{x_0} \in \mathbb{R}^2 $: normale extérieure unité à $\Omega\Leftrightarrow\newline
+1.\:|\nu_{x_0}|=1
+\newline
+2.\: \gamma: [a,b]\to\partial\Omega, $t_0$\in[a,b]: \gamma(t_0)=$x_0$ \Rightarrow \langle\gamma'(t_0),\nu_{x_0}\rangle = 0
+\newline
+3.\: \exists \epsilon_0: \forall0<\epsilon<\epsilon_0: $x_0$ +\epsilon \nu_{x_0} \notin \Omega, \gamma:[a,b]\to\partial\Omega $ orienté +\newline
+\Rightarrow \nu_{\gamma(t)}= \frac{1}{|\gamma'(t)|}(\gamma_2'(t), - \gamma_1'(t))
+\newline
+\textbf{Th. divergence:}\Omega \subseteq \mathbb{R}^2 , F\in\mathcal{C}^1(\overline{\Omega},\mathbb{R}^2)\newline
+\int \int_{\Omega} \operatorname{div} F(x,y)\,dx\,dy = \int_{\partial \Omega} \langle F; \nu \rangle \,d\ell \newline
+$\Gamma$\subseteq (\partial\Omega$ orienté +) par $\gamma : [a, b] \to \Gamma$ on a: \newline
+    \int_{\Gamma} \langle F, \nu \rangle dl = \int_{a}^{b} \langle F(\gamma(t));\frac{(\gamma_2'(t), -\gamma_1'(t))}{|\gamma'(t)|} \rangle |\gamma'(t)| dt \newline= \int_{a}^{b} \langle F(\gamma(t)), (\gamma_2'(t), -\gamma_1'(t)) \rangle dt\newline
+$On connaît $ \nu $ mais pas $ \gamma$?$\to$ calculer$ \int_{\Gamma} \langle F(x, y), \nu_{(x,y)} \rangle dl
+    
+\newline
+$\Omega \subseteq \mathbb{R}^2$ rég. et $F, G$ et $H \in C^\infty(\overline{\Omega}, \mathbb{R}^2)$ définies par
+
+F(x, y) = (-y, x) \qquad G(x, y) = (-y, 0) \qquad H(x, y) = (0, x)
+
+
+\text{Aire}(\Omega) = \iint_{\Omega} 1 dx dy = \frac{1}{2} \int_{\partial\Omega} F \bullet dl = \int_{\partial\Omega} G \bullet dl = \int_{\partial\Omega} H \bullet dl
+
+
+$\Omega \subseteq \mathbb{R}^2$: rég., $\nu$ sa normale extérieure unité et $u, v \in C^2(\overline{\Omega})$. 
+\begin{enumerate}
+    \item $\iint_{\Omega} \Delta u dx dy = \int_{\partial\Omega} \langle \nabla u, \nu \rangle dl$
+    \item $\iint_{\Omega} (v \Delta u + \langle \nabla u, \nabla v \rangle) dx dy = \int_{\partial\Omega} \langle v \cdot \nabla u; \nu \rangle dl$
+    \item $\iint_{\Omega} (u\Delta v - v\Delta u) dx dy = \int_{\partial\Omega} \langle u\nabla v - v\nabla u; \nu \rangle dl$
+\end{enumerate}
+
+\section*{3. Intégrales de surface et théorèmes globaux}
+
+\subsection*{3.1 Intégrales de surface}
+
+$\Sigma \subseteq \mathbb{R}^3$ est appelée une \textbf{surface régulière} \Leftrightarrow
+
+\begin{enumerate}
+    \item $\exists A \subset \mathbb{R}^2$: ouvert borné tq $\partial A$ est une courbe rég. par morceaux simple et fermée et $\exists \sigma : \overline{A} \to \mathbb{R}^3$ tq $\sigma \in C^1(\overline{A}, \mathbb{R}^3)$, $\sigma(\overline{A}) = \Sigma$ et $\sigma$ est injective sur $A$.
+    
+    \item De plus $\sigma_u \wedge \sigma_v = (\sigma_u^1, \sigma_u^2, \sigma_u^3) \wedge (\sigma_v^1, \sigma_v^2, \sigma_v^3) = \begin{pmatrix} \sigma_u^2 \sigma_v^3 - \sigma_v^2 \sigma_u^3 \\ \sigma_v^1 \sigma_u^3 - \sigma_u^1 \sigma_v^3 \\ \sigma_u^1 \sigma_v^2 - \sigma_v^1 \sigma_u^2 \end{pmatrix}$ est tel que $|\sigma_u \wedge \sigma_v| \neq 0$ sur $A$.
+\end{enumerate}
+
+\to $\sigma$: \textbf{paramétrisation régulière} de $\Sigma$ et $\frac{\sigma_u \wedge \sigma_v}{|\sigma_u \wedge \sigma_v|} = \nu_{(u,v)}$ est une \textbf{normale unité} au point $\sigma(u, v)$. 
+\newline
+surface régulière: \Sigma \subseteq \mathbb{R}^3 \textbf{ orientable:} \exists $champ de vecteurs normaux unitaires et continus \nu : \Sigma \to \mathbb{R}^3$ (orientat. de \Sigma)
+\newline
+$\Omega \subseteq \mathbb{R}^n$ un ouvert, $f \in C^0(\Omega)$, $F \in C^0(\Omega, \mathbb{R}^3)$ et $\Sigma \subseteq \Omega$ une surface rég. orientable paramétrée par $\sigma : \overline{A} \to \Sigma$. \newline
+1.\: \iint_{\Sigma} f ds = \iint_{A} f(\sigma(u, v)) \cdot |\sigma_u(u, v) \wedge \sigma_v(u, v)| du dv\newline
+2.\:\iint_{\Sigma} F \bullet ds = \iint_{A} \langle F(\sigma(u, v)) ; \sigma_u(u, v) \wedge \sigma_v(u, v) \rangle du dv \newline
+\textbf{(2.: orient. } \Sigma\textbf{!)}$Si de manière plus générale $\Sigma = \bigcup_{i=1}^{k} \Sigma_i$ \newline
+\iint_{\Sigma} f ds = \sum_{i=1}^{k} \iint_{\Sigma_i} f ds \qquad \iint_{\Sigma} F \bullet ds = \sum_{i=1}^{k} \iint_{\Sigma_i} F \bullet ds
+
+\subsection*{3.2 Théorème de la Divergence}
+$\Omega \subseteq \mathbb{R}^3$ un ouvert borné. $\Omega$ est un \textbf{domaine régulier} s'il existe un entier $m$ et $\Omega_0, \Omega_1, ..., \Omega_m$ des ouverts tels que
+
+\begin{enumerate}
+    \item $\forall 1 \leqslant j \leqslant m : \overline{\Omega_j} \subseteq \Omega_0$.
+    \item $\forall 1 \leqslant i \neq j \leqslant m : \Omega_i \cap \Omega_j = \emptyset$.
+    \item $\Omega = \Omega_0 \setminus \left[\bigcup_{i=1}^{m} \overline{\Omega_i}\right]$.
+    \item $\forall 0 \leqslant i \leqslant m$ on a $\partial\Omega_i = \Sigma_i$: surf. orient. rég. /morceau
+\end{enumerate}
+
+Soit $\Omega \subseteq \mathbb{R}^3$ est un domaine régulier, $\nu : \partial\Omega \to \mathbb{R}^3$ un champ de normales extérieures unités continu et $F \in C^1(\overline{\Omega}, \mathbb{R}^3)$. 
+\iiint_{\Omega} \text{div} F(x, y, z) dx dy dz = \iint_{\partial\Omega} \langle F; \nu \rangle ds
+\newline
+$\gamma:$(param.\partial\Omega): \:
+\iint_{\partial\Omega} \langle F; \nu \rangle ds = \int_a^b \langle F(\gamma(t)) ; (-\gamma_2'(t),\gamma_1'(t) )\rangle \,dt
+\newline
+$\Omega \subseteq \mathbb{R}^3$ un domaine rég., $\nu : \partial\Omega \to \mathbb{R}^3$ un champ de normales extérieures unités continu. Soit les champs vectoriels
+
+F(x, y, z) = (x, y, z) \quad G_1(x, y, z) = (x, 0, 0) \newline G_2(x, y, z) = (0, y, 0) \quad G_3(x, y, z) = (0, 0, z)
+
+\newline
+\text{Volume}(\Omega) = \frac{1}{3} \iint_{\partial\Omega} \langle F, \nu \rangle ds = \iint_{\partial\Omega} \langle G_i, \nu \rangle ds \: \forall 1 \leqslant i \leqslant 3
+
+
+Soient $f, g \in C^2(\overline{\Omega})$. Alors
+
+\begin{enumerate}
+    \item $\iiint_{\Omega} (f\nabla g + \langle \nabla f; \nabla g \rangle) dx dy dz = \iint_{\partial\Omega} \langle f\nabla g; \nu \rangle ds$
+    \item $\iiint_{\Omega} (f\Delta g - g\Delta f) dx dy dz = \iint_{\partial\Omega} \langle f\nabla g - g\nabla f; \nu \rangle ds$
+    \item $\iiint_{\Omega} \Delta f dx dy dz = \iint_{\partial\Omega} \langle \nabla f; \nu \rangle ds$
+\end{enumerate}
+\subsection*{3.3 Théorème de Stokes}
+$\Sigma \subseteq \mathbb{R}^3$ une surf. rég. orientable, $\sigma : \overline{A} \to \Sigma$ une param. ($\partial A$: courbe simple, fermée, rég. /morceaux). Le \textbf{bord de $\Sigma$} noté $\partial\Sigma$ est donné par $\sigma(\partial A)$ dont on enlève
+\begin{itemize}
+    \item Les courbes qui sont parcourues dans deux sens opposés.
+    \item Les parties qui sont réduites à un point.
+\end{itemize}
+Sens de parcours sur $\partial A$ induit un sens de parcours sur $\partial\Sigma$ par composition avec $\sigma$. \newline
+$\gamma : [a, b] \to \mathbb{R}^2$ une param. (d'un bout) de $\partial A$, alors $\sigma \circ \gamma : [a, b] \to \mathbb{R}^3$ est une paramétrisation (d'un bout) de $\partial\Sigma$ et donc un choix de sens de parcours de $\partial\Sigma$. Le sens de parcours de $\sigma \circ \gamma$ est appelé le \textbf{sens de parcours induit par $\sigma$}. \newline
+$\Omega \subseteq \mathbb{R}^3$: ouvert, $\Sigma \subseteq \Omega$ surf. orientable rég. /morceaux:\newline
+\textbf{Stokes:} \iint_{\Sigma} \operatorname{rot} F \, ds= \int_{\partial\Sigma} F \bullet dl, F \in C^1(\Omega, \mathbb{R}^3) \newline
+$\textbf{Signes compatibles?} $\sigma : \overline{A} \to \Sigma$ : une param. de $\Sigma$, on fixe qui est la 1^{ère} $et 2^{ème} $ variable. On choisit l'orient. de $\partial A$ qui laisse le domaine à gauche et pour $\partial\Sigma$ on choisit l'orientation induite par $\sigma$. Pour la normale, si $u$ est la  1^{ère} $ variable et $v$ la 2^{ème} $, on prend $\sigma_u \wedge \sigma_v$ (et non $\sigma_v \wedge \sigma_u$).\newline
+\int \int_\Sigma \operatorname{rot} F \, ds = \int \int_A \langle \operatorname{rot} F(\sigma(u,v)) ; \sigma_u \times \sigma_v \rangle \, du \,dv \newline
+\iint_{\Sigma} \operatorname{rot} F \, ds=\iint_{\Sigma} \operatorname{rot} F \cdot \nu\, ds \:(\nu:$ unit normal vector)
+
+\section*{4. Séries de Fourier}
+
+\subsection*{4.1 Motivation et rappels}
+$a < b$ \in \mathbb{R}, $ f : [a, b] \to \mathbb{R}$ \textbf{continue par morceaux}, noté $f \in C^0_{\text{morc}}([a, b])$ si \exists $n \in \mathbb{N}$ et $a = a_0 < a_1 < ... < a_n = b$ tq $f \in C^0(]a_{i-1}, a_i[)$ pour $i = 1, ..., n$ et tels que $\lim_{x \to a_{i-1}^+} f(x)$ et $\lim_{x \to a_i^-} f(x)$ existent et sont finies. Et si $f \in C^1(]a_{i-1}, a_i[)$, $\lim_{x \to a_{i-1}^+} f'(x)$ et $\lim_{x \to a_i^-} f'(x)$ existent et sont finies, $f$ est \textbf{C^1 $par morceaux} et on note $f \in C^1_{\text{morc}}([a, b])$.
+
+\subsection*{4.2 Définition et convergence}
+Soit $f : \mathbb{R} \to \mathbb{R}$ $T$-périodique et continue par morceaux.\newline
+\forall n \geqslant 0 : a_n = \frac{2}{T} \int_0^T f(x) \cos\left(\frac{2\pi}{T}nx\right) dx 
+\newline  
+\forall n \geqslant 1 : b_n = \frac{2}{T} \int_0^T f(x) \sin\left(\frac{2\pi}{T}nx\right) dx \newline
+$La somme partielle de Fourier de $f$ d'ordre $N$ est\newlines
+F_N f(x) = \frac{a_0}{2} + \sum_{n=1}^N \left[a_n \cos\left(\frac{2\pi}{T}nx\right) + b_n \sin\left(\frac{2\pi}{T}nx\right)\right] \newline
+$Série de Fourier F f(x) = \lim_{N \to +\infty} F_N f(x)$ (si converge).
+$f : \mathbb{R} \to \mathbb{R}$ $T$-périodique et $C^1$ par morceaux.\newline
+\textbf{Th. Dirichlet }\forall$x \in \mathbb{R}$
+$F f(x) = \lim_{t \to 0} \frac{f(x - t) + f(x + t)}{2}$$\newline
+f : \mathbb{R} \to \mathbb{R}$ $T$-pér. \in C^0_{\text{morc}}.c_n = \frac{1}{T} \int_0^T f(x) e^{-i\frac{2\pi}{T}nx} dx \:\: \forall n \in \mathbb{Z} \newline
+$\phi : \mathbb{R} \to \mathbb{C}$:
+\int_a^b \phi(x) dx = \int_a^b \text{Re}(\phi(x)) dx + i \cdot \int_a^b \text{Im}(\phi(x)) dx
+
+$f : \mathbb{R} \to \mathbb{R}$ $T$-périodique et continue par morceaux.
+
+\begin{enumerate}
+    \item $\forall n \geqslant 1$$ c_n = \frac{a_n - ib_n}{2}$ ; $\forall n \leqslant -1$ $c_n = \frac{a_{-n} + ib_{-n}}{2}$ ; $c_0 = \frac{a_0}{2}$.
+    \item $\forall n \geqslant 1$ $a_n = c_n + c_{-n}$ et $b_n = i(c_n - c_{-n})$ et $a_0 = 2c_0$.
+    \item $F_N f(x) = \sum_{n=-N}^N c_n e^{i\frac{2\pi}{T}nx}$ ($F f(x): N=\infty) 
+\end{enumerate}
+
+\subsection*{4.3 Propriétés}
+$f : \mathbb{R} \to \mathbb{R}$ une fonction $T$-périodique et continue par morceaux.
+\begin{enumerate}
+    \item La série de Fourier de $f$ est $T$-périodique.
+    \item Si $f$ est paire, i.e. $f(x) = f(-x)$ $\forall n \geqslant 1$ $b_n = 0$
+    \item Si $f$ est impaire, i.e. $f(-x) = -f(x)$, $\forall n \geqslant 0$ $a_n = 0$
+    \end{itemize}
+\end{enumerate}
+$L > 0$, $f : [0, L] \to \mathbb{R}$ \in $C^1_{morc.}$ la série de Fourier en cosinus \newline F_c f(x) = \frac{\hat{a}_0}{2} + \sum_{n=1}^\infty \hat{a}_n \cos\left(\frac{\pi}{L}nx\right)  \newline
+\hat{a}_n = \frac{2}{L} \int_0^L f(x) \cos\left(\frac{\pi}{L}nx\right) dx\newline
+$$F_c f(x) = \begin{cases}
+\lim_{t \to 0} \frac{f(x-t) + f(x+t)}{2} & \text{si } x \in ]0, L[ \\
+\lim_{t \to 0} f(0 + t) & \text{si } x = 0 \\
+\lim_{t \to 0} f(L - t) & \text{si } x = L
+\end{cases}$$ \newline
+L > 0$, $f\in$C^1_{morc.}$ : [0, L] \to \mathbb{R}$ série de Fourier en sin:
+F_s f(x) = \sum_{n=1}^\infty \tilde {b}_n \sin\left(\frac{\pi}{L}nx\right)
+;\:\tilde{b}_n = \frac{2}{L} \int_0^L f(x) \sin\left(\frac{\pi}{L}nx\right) dx$$\newline
+$$F_s f(x) = \begin{cases}
+\lim_{t \to 0} \frac{f(x-t) + f(x+t)}{2} & \text{si } x \in ]0, L[ \\
+0 & \text{si } x = 0 \text{ ou } x = L
+\end{cases}$$ \newline
+f : \mathbb{R} \to \mathbb{R}$ \in $C^1_{morc.}$, $T$-périodique. \textbf{Identité de Parseval:}
+$\frac{2}{T} \int_0^T f(x)^2 dx = \frac{a_0^2}{2} + \sum_{n=1}^\infty (a_n^2 + b_n^2) = 2 \sum_{n=-\infty}^\infty |c_n|^2$ \newline
+$f : \mathbb{R} \to \mathbb{R}$ 
+$T$-pér. \in \mathcal{C}^0($\mathbb{R}$) \in $C^1_{morc.}$, 
+$f'$ \in $C^1{{morc.}$: \newline
+$F f'(x)= \lim_{t \to 0} \frac{f'(x - t) + f'(x + t)}{2}
+\section*{5. Transformée de Fourier}
+
+\subsection*{5.0.1 Définition et inversion}
+$f : \mathbb{R} \to \mathbb{R}$ \in \mathcal{C}^0_{morc.} $ tq: $
+$$\int_{-\infty}^{+\infty} |f(x)| dx < +\infty$$\newline
+\to $Transformée de Fourier de $f$ notée $\mathcal{F}[f]$ ou $\hat{f}$ est :\newline
+$\mathcal{F}[f] : \mathbb{R} \to \mathbb{C} \text{:} \: \mathcal{F}[f](\alpha) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} f(x) e^{-i\alpha x} dx$\newline
+$\phi\in\mathcal{C}^0_{morc.}: \mathbb{R} \to \mathbb{C}$ tq:
+\int_{-\infty}^{+\infty} |\phi(\alpha)| d\alpha < +\infty\newline
+\to$Transformée de Fourier inverse de $\phi$ notée $\mathcal{F}^{-1}[\phi]$ :\newline
+$\mathcal{F}^{-1}[\phi] : \mathbb{R} \to \mathbb{C} \text{ :}\: \mathcal{F}^{-1}[\phi](x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} \phi(\alpha) e^{i\alpha x} d\alpha$$
+\newline
+\mathcal{F}^{-1}[\mathcal{F}[f]](x) = f(x), f : \mathbb{R} \to \mathbb{R}$ \text{tq} $\mathcal{F}^{-1} $et $\mathcal{F} \text{ sont définis}
+
+\subsection*{5.1 Propriétés}
+$f, g : \mathbb{R} \to \mathbb{R}$ \in \mathcal{C}^0_{morc.} :$ $\hat{f} $ et $ \hat{g}$ sont définis
+\begin{enumerate}
+    \item $\hat{f}$ est continue.
+    \item $\forall a, b \in \mathbb{R}$ on a $\mathcal{F}[a \cdot f + b \cdot g] = a\mathcal{F}[f] + b\mathcal{F}[g]$
+    \item $a, b \in \mathbb{R}$, $a \neq 0, $g(x) = f(ax + b)$ :\:
+    $$\hat{g}(\alpha) = \frac{e^{i\frac{b}{a}\alpha}}{|a|} \hat{f}\left(\frac{\alpha}{a}\right)$$
+    \item $g(x) = e^{-ibx} f(x)$ alors $\hat{g}(\alpha) = \hat{f}(\alpha + b)$
+\end{enumerate}
+
+$f$ \in \mathcal{C}^0_{morc.} $tq $\int_{-\infty}^{+\infty} |f(x)| dx < +\infty$ et $\int_{-\infty}^{+\infty} f(x)^2 dx < +\infty$. \newline
+\textbf{Id. de Plancherel: }$\int_{-\infty}^{+\infty} f(x)^2 dx = \int_{-\infty}^{+\infty} |\hat{f}(\alpha)|^2 d\alpha$$\newline
+$f \in C^1(\mathbb{R})$:$\int_{-\infty}^{+\infty} |f(x)| dx < \infty$, $\int_{-\infty}^{+\infty} |f'(x)| dx < \infty$, 
+    \newline$n \in \mathbb{N}^*$ et \forall $1 \leqslant k \leqslant n$ on a $\int_{-\infty}^{+\infty} |f^{(k)}(x)| dx < +\infty$, alors
+    $\mathcal{F}[f^{(n)}](\alpha) = (i\alpha)^n \mathcal{F}[f]$$\newline
+    $Si $h_k(x) = x^k f(x)$, \forall $1 \leqslant k \leqslant n$ on a $\int_{-\infty}^{+\infty} |h_k(x)| dx < \infty$:
+    $\frac{d^n \hat{f}}{d\alpha^n}(\alpha) = (-i)^n \mathcal{F}[h_n](\alpha)$$\newline
+f : \mathbb{R} \to \mathbb{R}$ telle que $\int_{-\infty}^{+\infty} |f(x)|dx < +\infty$, \newline
+1.\:si $f$ est paire, 
+    $\hat{f}(\alpha) = \sqrt{\frac{2}{\pi}} \int_{0}^{+\infty} f(x)\cos(\alpha x)dx\newline
+$2.\:si $f$ est impaire, 
+    $\hat{f}(\alpha) = -i\sqrt{\frac{2}{\pi}} \int_{0}^{+\infty} f(x)\sin(\alpha x)dx
+\newline
+f, g : \mathbb{R} \to \mathbb{R}$ :$\int_{-\infty}^{+\infty} |f(x)|dx < +\infty$ et $\int_{-\infty}^{+\infty} |g(x)|dx < +\infty$ Le produit de convolution de $f$ et $g$ est défini par\newline
+$f * g(x) = \int_{-\infty}^{+\infty} f(x-t)g(t)dt = \int_{-\infty}^{+\infty} f(t)g(x-t)dt
+\]\newline
+$f$, $g$ \in \mathcal{C}^0_{morc.}$ sur $\mathbb{R}$: $\int_{-\infty}^{+\infty} |f(x)|dx <\infty$,$\int_{-\infty}^{+\infty} |g(x)|dx <\infty$: \newline
+\int_{-\infty}^{+\infty} |f * g(x)|dx < \infty \text{ et } \mathcal{F}[f * g](\alpha) = \sqrt{2\pi}\,\hat{f}(\alpha) \cdot \hat{g}(\alpha)
+\]
+\section*{6. Applications de l'analyse de Fourier}
+\textbf{Sturm-Liouville:} $t\in]0,L[,\lambda\in\mathbb{R}$, $\begin{cases}u''(t)+\lambda u(t)=0\\u(0)=u(L)=0\end{cases}$
+
+Sol: $u(t)=0$ si $\lambda=0$; si $\lambda\neq 0$: $u(t)=\sinh(t\sqrt{|\lambda|})\frac{u_1(t)}{\sqrt{|\lambda|}}$
+
+\textbf{Heat (finite):} $x\in[0,L],t>0$, $\begin{cases}\frac{\partial u}{\partial t}=a^2\frac{\partial^2 u}{\partial x^2}\\u(0,t)=u(L,t)=0\\u(x,0)=f(x)\end{cases}$
+
+$u(x,t)=\sum_{n\geq 1}\alpha_n\sin\left(\frac{n\pi x}{L}\right)\exp\left(-\left(\frac{an\pi}{L}\right)^2t\right)$ \newline
+avec $\alpha_n=\frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)dx$
+
+\textbf{2. Heat (infinite):} $x\in\mathbb{R},t>0$, $\begin{cases}\frac{\partial u}{\partial t}=a^2\frac{\partial^2 u}{\partial x^2}\\u(x,0)=f(x)\end{cases}$
+
+$u(x,t)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\exp(-(a\alpha)^2t)\hat{f}(\alpha)\exp(i\alpha x)d\alpha$
+
+\textbf{3. Wave (finite):} $x\in[0,L],t>0$, $\begin{cases}\frac{\partial^2 u}{\partial t^2}=c^2\frac{\partial^2 u}{\partial x^2}\\u(0,t)=u(L,t)=0\\u(x,0)=f(x)\\\frac{\partial u}{\partial t}(x,0)=g(x)\end{cases}$
+
+$u(x,t)=\sum_{n\geq 1}\left[a_n\cos\left(\frac{n\pi ct}{L}\right)+b_n\sin\left(\frac{n\pi ct}{L}\right)\right]\sin\left(\frac{n\pi x}{L}\right)$
+
+avec $a_n=\frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)dx$, $b_n=\frac{L}{n\pi c}\cdot\frac{2}{L}\int_0^L g(x)\sin\left(\frac{n\pi x}{L}\right)dx$
+
+\textbf{4. Laplace (rectangle):} $x\in[0,L],y\in[0,M]$, $\begin{cases}\Delta u=\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=0\\u(x,0)=\alpha(x),\; u(x,M)=\beta(x)\\u(0,y)=\gamma(y),\; u(L,y)=\delta(y)\end{cases}$
+
+$u(x,y)=v(x,y)+w(x,y)$ avec
+
+$w(x,y)=\sum_{n\geq 1}\left(a_n\cosh\left(\frac{n\pi y}{L}\right)+b_n\sinh\left(\frac{n\pi y}{L}\right)\right)\sin\left(\frac{n\pi x}{L}\right)$
+
+avec $a_n=\frac{2}{L}\int_0^L\alpha(x)\sin\left(\frac{n\pi x}{L}\right)dx$, 
+
+$b_n\sinh\left(\frac{n\pi M}{L}\right)=\frac{2}{L}\int_0^L\beta(x)\sin\left(\frac{n\pi x}{L}\right)dx-a_n\cosh\left(\frac{n\pi M}{L}\right)$
+
+v(x,y) = \sum_{n=1}^{\infty} \left[ d_n \cosh\left(\frac{n\pi}{M}x\right) + e_n \sinh\left(\frac{n\pi}{M}x\right) \right] \sin\left(\frac{n\pi}{M}y\right)\newline
+d_n &= \frac{2}{M} \int_{0}^{M} \gamma(y) \sin\left(\frac{n\pi}{M}y\right) dy \newline
+e_n \sinh\left(\frac{n\pi}{M} L\right) = \frac{2}{M} \int_{0}^{M} \delta(y) \sin\left(\frac{n\pi}{M}y\right) dy - d_n \cosh\left(\frac{n\pi}{M} L\right)\newline\newline
+$\cos(a \pm b) = \cos a \cos b \mp \sin a \sin b$,
+\sin(a \pm b) = \sin a \cos b \pm \cos a \sin b$,
+
+$\cos a \cos b = \frac{1}{2}\left[\cos(a - b) + \cos(a + b)\right]$,
+
+$\sin a \sin b = \frac{1}{2}\left[\cos(a - b) - \cos(a + b)\right]$,
+
+$\sin a \cos b = \frac{1}{2}\left[\sin(a + b) + \sin(a - b)\right]$,
+
+\end{document}
