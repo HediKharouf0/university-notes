@@ -329,7 +329,7 @@ $f$, $g$ \in \mathcal{C}^0_{morc.}$ sur $\mathbb{R}$: $\int_{-\infty}^{+\infty} 
 \section*{6. Applications de l'analyse de Fourier}
 \textbf{Sturm-Liouville:} $t\in]0,L[,\lambda\in\mathbb{R}$, $\begin{cases}u''(t)+\lambda u(t)=0\\u(0)=u(L)=0\end{cases}$
 
-Sol: $u(t)=0$ si $\lambda=0$; si $\lambda\neq 0$: $u(t)=\sinh(t\sqrt{|\lambda|})\frac{u_1(t)}{\sqrt{|\lambda|}}$
+$u(t)=0$ si $\lambda \leqslant 0$; si $\lambda > 0$: $u(t)=\sinh(t\sqrt{\lambda})\frac{u_1}{\sqrt{\lambda}}$, \sqrt{\lambda}=\frac{n\pi}{L}
 
 \textbf{Heat (finite):} $x\in[0,L],t>0$, $\begin{cases}\frac{\partial u}{\partial t}=a^2\frac{\partial^2 u}{\partial x^2}\\u(0,t)=u(L,t)=0\\u(x,0)=f(x)\end{cases}$
 
@@ -338,13 +338,13 @@ avec $\alpha_n=\frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)dx$
 
 \textbf{2. Heat (infinite):} $x\in\mathbb{R},t>0$, $\begin{cases}\frac{\partial u}{\partial t}=a^2\frac{\partial^2 u}{\partial x^2}\\u(x,0)=f(x)\end{cases}$
 
-$u(x,t)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\exp(-(a\alpha)^2t)\hat{f}(\alpha)\exp(i\alpha x)d\alpha$
+$u(x,t)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\hat{f}(\alpha)\exp(i\alpha x-(a\alpha)^2t)d\alpha$
 
 \textbf{3. Wave (finite):} $x\in[0,L],t>0$, $\begin{cases}\frac{\partial^2 u}{\partial t^2}=c^2\frac{\partial^2 u}{\partial x^2}\\u(0,t)=u(L,t)=0\\u(x,0)=f(x)\\\frac{\partial u}{\partial t}(x,0)=g(x)\end{cases}$
 
 $u(x,t)=\sum_{n\geq 1}\left[a_n\cos\left(\frac{n\pi ct}{L}\right)+b_n\sin\left(\frac{n\pi ct}{L}\right)\right]\sin\left(\frac{n\pi x}{L}\right)$
 
-avec $a_n=\frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)dx$, $b_n=\frac{L}{n\pi c}\cdot\frac{2}{L}\int_0^L g(x)\sin\left(\frac{n\pi x}{L}\right)dx$
+avec $a_n=\frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)dx$, $b_n=\frac{2}{n\pi c}\int_0^L g(x)\sin\left(\frac{n\pi x}{L}\right)dx$
 
 \textbf{4. Laplace (rectangle):} $x\in[0,L],y\in[0,M]$, $\begin{cases}\Delta u=\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=0\\u(x,0)=\alpha(x),\; u(x,M)=\beta(x)\\u(0,y)=\gamma(y),\; u(L,y)=\delta(y)\end{cases}$
 
