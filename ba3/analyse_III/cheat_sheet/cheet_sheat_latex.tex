@@ -23,9 +23,7 @@
 
 \operatorname{grad} f= Df= \nabla f = \left(\frac{\partial f}{\partial x_1},\dots,\frac{\partial f}{\partial x_n}\right)
 ($f\in $\mathcal{C}^1$: \Omega \subseteq\mathbb{R}^n \to \mathbb{R}$) \\
-nabla: \nabla = \left(\frac{\partial}{\partial x_1},\dots,\frac{\partial }{\partial x_n}\right)
-\newline
-\operatorname{div} F=\nabla \bullet F = \langle \nabla, F \rangle =\sum_{i=1}^n \frac{\partial F_i}{\partial x_i} \: (F \in \mathcal{C}^1 (\Omega, \mathbb{R}^n), \Omega \subseteq \mathbb{R}^n: ouvert)
+\operatorname{div} F=\nabla \bullet F = \langle \nabla, F \rangle =\sum_{i=1}^n \frac{\partial F_i}{\partial x_i} \: (F \in \mathcal{C}^1 (\Omega, \mathbb{R}^n), \Omega \subseteq \mathbb{R}^n: ouvert) \: (nabla: \nabla = \left(\frac{\partial}{\partial x_1},\dots,\frac{\partial }{\partial x_n}\right))
 \newline
 \Omega \in \mathbb{R}^m: $ouvert$; F,G \in \mathcal{C}^1(\Omega,\mathbb{R}^n):\newline
 \forall 1\leqslant i \leqslant m: \frac{\partial}{\partial x_i}[\langle F, G \rangle] =\langle \frac{\partial}{\partial x_i}F, G\rangle + \langle F, \frac{\partial}{\partial x_i}G \rangle \newline
@@ -214,16 +212,11 @@ Soient $f, g \in C^2(\overline{\Omega})$. Alors
     \item $\iiint_{\Omega} \Delta f dx dy dz = \iint_{\partial\Omega} \langle \nabla f; \nu \rangle ds$
 \end{enumerate}
 \subsection*{3.3 Théorème de Stokes}
-$\Sigma \subseteq \mathbb{R}^3$ une surf. rég. orientable, $\sigma : \overline{A} \to \Sigma$ une param. ($\partial A$: courbe simple, fermée, rég. /morceaux). Le \textbf{bord de $\Sigma$} noté $\partial\Sigma$ est donné par $\sigma(\partial A)$ dont on enlève
-\begin{itemize}
-    \item Les courbes qui sont parcourues dans deux sens opposés.
-    \item Les parties qui sont réduites à un point.
-\end{itemize}
-Sens de parcours sur $\partial A$ induit un sens de parcours sur $\partial\Sigma$ par composition avec $\sigma$. \newline
+$\Sigma \subseteq \mathbb{R}^3$ une surf. rég. orientable, $\sigma : \overline{A} \to \Sigma$ une param. ($\partial A$: courbe simple, fermée, rég. /morceaux). Le \textbf{bord de $\Sigma$} noté $\partial\Sigma$ est donné par $\sigma(\partial A)$ dont on enlève les courbent qui s'annulent et les points. Sens de parcours sur $\partial A$ induit un sens de parcours sur $\partial\Sigma$ par composition avec $\sigma$. \newline
 $\gamma : [a, b] \to \mathbb{R}^2$ une param. (d'un bout) de $\partial A$, alors $\sigma \circ \gamma : [a, b] \to \mathbb{R}^3$ est une paramétrisation (d'un bout) de $\partial\Sigma$ et donc un choix de sens de parcours de $\partial\Sigma$. Le sens de parcours de $\sigma \circ \gamma$ est appelé le \textbf{sens de parcours induit par $\sigma$}. \newline
 $\Omega \subseteq \mathbb{R}^3$: ouvert, $\Sigma \subseteq \Omega$ surf. orientable rég. /morceaux:\newline
 \textbf{Stokes:} \iint_{\Sigma} \operatorname{rot} F \, ds= \int_{\partial\Sigma} F \bullet dl, F \in C^1(\Omega, \mathbb{R}^3) \newline
-$\textbf{Signes compatibles?} $\sigma : \overline{A} \to \Sigma$ : une param. de $\Sigma$, on fixe qui est la 1^{ère} $et 2^{ème} $ variable. On choisit l'orient. de $\partial A$ qui laisse le domaine à gauche et pour $\partial\Sigma$ on choisit l'orientation induite par $\sigma$. Pour la normale, si $u$ est la  1^{ère} $ variable et $v$ la 2^{ème} $, on prend $\sigma_u \wedge \sigma_v$ (et non $\sigma_v \wedge \sigma_u$).\newline
+$\textbf{Signes compatibles?} $\sigma : \overline{A} \to \Sigma$ : une param. de $\Sigma$, on fixe qui est la 1^{ère} $et 2^{ème} $ variable. On choisit l'orient. de $\partial A$ qui laisse le domaine à gauche et pour $\partial\Sigma$ on choisit l'orientation induite par $\sigma$. Si $u$ est la  1^{ère} $ variable et $v$ la 2^{ème} $, on prend $\sigma_u \wedge \sigma_v$\newline
 \int \int_\Sigma \operatorname{rot} F \, ds = \int \int_A \langle \operatorname{rot} F(\sigma(u,v)) ; \sigma_u \times \sigma_v \rangle \, du \,dv \newline
 \iint_{\Sigma} \operatorname{rot} F \, ds=\iint_{\Sigma} \operatorname{rot} F \cdot \nu\, ds \:(\nu:$ unit normal vector)
 
@@ -237,7 +230,6 @@ Soit $f : \mathbb{R} \to \mathbb{R}$ $T$-périodique et continue par morceaux.\n
 \forall n \geqslant 0 : a_n = \frac{2}{T} \int_0^T f(x) \cos\left(\frac{2\pi}{T}nx\right) dx 
 \newline  
 \forall n \geqslant 1 : b_n = \frac{2}{T} \int_0^T f(x) \sin\left(\frac{2\pi}{T}nx\right) dx \newline
-$La somme partielle de Fourier de $f$ d'ordre $N$ est\newlines
 F_N f(x) = \frac{a_0}{2} + \sum_{n=1}^N \left[a_n \cos\left(\frac{2\pi}{T}nx\right) + b_n \sin\left(\frac{2\pi}{T}nx\right)\right] \newline
 $Série de Fourier F f(x) = \lim_{N \to +\infty} F_N f(x)$ (si converge).
 $f : \mathbb{R} \to \mathbb{R}$ $T$-périodique et $C^1$ par morceaux.\newline
@@ -358,14 +350,22 @@ $b_n\sinh\left(\frac{n\pi M}{L}\right)=\frac{2}{L}\int_0^L\beta(x)\sin\left(\fra
 
 v(x,y) = \sum_{n=1}^{\infty} \left[ d_n \cosh\left(\frac{n\pi}{M}x\right) + e_n \sinh\left(\frac{n\pi}{M}x\right) \right] \sin\left(\frac{n\pi}{M}y\right)\newline
 d_n &= \frac{2}{M} \int_{0}^{M} \gamma(y) \sin\left(\frac{n\pi}{M}y\right) dy \newline
-e_n \sinh\left(\frac{n\pi}{M} L\right) = \frac{2}{M} \int_{0}^{M} \delta(y) \sin\left(\frac{n\pi}{M}y\right) dy - d_n \cosh\left(\frac{n\pi}{M} L\right)\newline\newline
+e_n \sinh\left(\frac{n\pi}{M} L\right) = \frac{2}{M} \int_{0}^{M} \delta(y) \sin\left(\frac{n\pi}{M}y\right) dy - d_n \cosh\left(\frac{n\pi}{M} L\right)\newline
 $\cos(a \pm b) = \cos a \cos b \mp \sin a \sin b$,
-\sin(a \pm b) = \sin a \cos b \pm \cos a \sin b$,
-
+\sin(a \pm b) = \sin a \cos b \pm \cos a \sin b$,\newline
 $\cos a \cos b = \frac{1}{2}\left[\cos(a - b) + \cos(a + b)\right]$,
 
 $\sin a \sin b = \frac{1}{2}\left[\cos(a - b) - \cos(a + b)\right]$,
 
-$\sin a \cos b = \frac{1}{2}\left[\sin(a + b) + \sin(a - b)\right]$,
+$\sin a \cos b = \frac{1}{2}\left[\sin(a + b) + \sin(a - b)\right]$,\newline
+$f(y) \cdot y' = g(x) \Rightarrow \int f(y)\,dy = \int g(x)\,dx + C$\newline
+$y'(x) + p(x)y(x) = f(x) \Rightarrow y(x) = ce^{-P(x)} + \left(\int f(x)e^{P(x)}\,dx\right)e^{-P(x)}, $P(x) = \int p(x)\,dx$\newline
+$y''(x) + py'(x) + qy(x) = 0,\lambda^2 + p\lambda + q = 0$$
+\newline 
+\Delta > 0, \ \lambda_1 \neq \lambda_2 \Rightarrow y_{\text{hom}}(x) = c_1e^{\lambda_1 x} + c_2e^{\lambda_2 x}$$\newline
+\Delta = 0, \ \lambda_1 = \lambda_2 = \lambda \Rightarrow y_{\text{hom}}(x) = c_1e^{\lambda x} + c_2xe^{\lambda x}$$\newline
+$\Delta < 0, \ \lambda = \alpha \pm i\beta \Rightarrow y_{\text{hom}}(x) = c_1e^{\alpha x}\cos(\beta x) + c_2e^{\alpha x}\sin(\beta x)$$
+
+
 
 \end{document}
