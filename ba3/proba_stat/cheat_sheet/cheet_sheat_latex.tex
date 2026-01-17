@@ -28,18 +28,18 @@ repetition and ordered? $\to n^r$ \newline
 no repetition and ordered? $\to P(n,r) = \frac{n!}{(n-r)!}$ \newline
 no repetition and not ordered? $\to C(n,r) = \frac{n!}{r!(n-r)!}$ \newline
 repetition and not ordered? $\to C(n+r-1,r) = \frac{(n+r-1)!}{r!(n-1)!}$
-\section*{2. Probability}
-\textbf{Def 2.1.1 (Prob. space):} $\Omega$: realisations, $P: \mathcal{P}(\Omega) \to [0,1]$:\newline
-2. $A_i \cap A_j = \varnothing$ for $i \neq j \Rightarrow P(\bigcup_{i \in \mathbb{N}} A_i) = \sum_{i \in \mathbb{N}} P(A_i)$\newline
-\textbf{Thm 2.1.1:} $P(\Omega \setminus A) = 1 - P(A)$; $A \subset B \Rightarrow P(A) \leq P(B)$\newline
-$P(A \cup B) = P(A) + P(B) - P(A \cap B)$\newline
+\section*{2. Probability  } 
+\textbf{Prob. space:} $\Omega$: realisations, $P: \mathcal{P}(\Omega) \to [0,1]$:\newline
+\bullet $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$\newline
 $A_i \cap A_j = \varnothing \Rightarrow P(\bigcup A_i) = \sum P(A_i)$ (finite/countable)\newline
-$P(\bigcup A_i) \leq \sum P(A_i)$ ($\sigma$-sub-additivity)\newline
+$P(\bigcup A_i) \leq \sum P(A_i)$ ($\sigma$-sub-additivity);$A \subset B \Rightarrow P(A) \leq P(B)$\newline
 $A_i \subset A_{i+1} \Rightarrow \lim\limits_{n \to \infty} P(A_n) = P(\bigcup A_i)$; $A_i \supset A_{i+1} \Rightarrow \lim\limits_{n \to \infty} P(A_n) = P(\bigcap A_n)$\newline
-\textbf{Def 2.1.2 (pmf):} $\Omega$ finite/countable, $p: \Omega \to [0,1]$, $\sum_{\omega} p(\omega) = 1$\newline
+\textbf{pmf:} $\Omega$ finite/countable, $p: \Omega \to [0,1]$, $\sum_{\omega} p(\omega) = 1$\newline
 $P_p(A) = \sum_{\omega \in A} p(\omega)$ (probab. measure)\newline
-\textbf{Def 2.1.3 (pdf):} $f: \mathbb{R}^d \to [0,+\infty)$, $\int \cdots \int f(x_1,\ldots,x_d)dx = 1$\newline
+\textbf{pdf:} $f: \mathbb{R}^d \to [0,+\infty)$, $\int \cdots \int f(x_1,\ldots,x_d)dx = 1$\newline
 $P_f(A) = \int \cdots \int f(x)\mathbf{1}_A(x)dx$ (probab. measure)\newline
+$f_X(x) = \int_{\mathbb{R}} f_{X,Y}(x,y) dy$\newline
+$f_Y(y) = \left|\frac{dg^{-1}(y)}{dy}\right|f_X(g^{-1}(y))$ with $Y = g(X)$, $g$ monotone \newline
 \textbf{Def 2.2.3 (Continuous r.v.):} $X: \Omega \to \mathbb{R}$ continuous if $\exists f_X: \mathbb{R} \to [0,+\infty)$:\:
 $P(X \in A) = \int_{\mathbb{R}} \mathbf{1}_A(x) f_X(x) dx$\newline
 \textbf{Def 2.2.5 (CDF):} $F_X(t) = P(X \leq t)$,$X$ contin. $\Rightarrow F_X'(t) = f_X(t)$\newline
@@ -61,11 +61,9 @@ $\bullet$ $M_X(t) = M_Y(t)$ $\forall t \in (-\delta,\delta) \Rightarrow X \stack
 $P(A) > 0$: $P(B|A) = \frac{P(A \cap B)}{P(A)}$;\:
 $E_P(X|A) = E_{P_A}(X)= \frac{E_P(X\mathbf{1}_A)}{P(A)}$\newline
 \textbf{Def 2.4.2:} $A, B$ indep. $\Leftrightarrow P(A \cap B) = P(A)P(B)$\newline
-$(A_i)_{i \in I}$ two-by-two indep.: $\forall i \neq j$, $A_i, A_j$ indep.\newline
 $(A_i)_{i \in I}$ indep. family: $\forall J \subset I$ finite, $P(\bigcap_{i \in J} A_i) = \prod_{i \in J} P(A_i)$\newline
 \textbf{Def 2.4.3 (Indep. r.v.):} $X,Y$ indep. $\Leftrightarrow \forall A,B \subset \mathbb{R}$: $P(X \in A, Y \in B) = P(X \in A)P(Y \in B)$\newline
 $\Leftrightarrow \forall f,g: \mathbb{R} \to \mathbb{R}$: $E(f(X)g(Y)) = E(f(X))E(g(Y))$\newline
-$(X_i)_{i\in I}$ two-by-two indep.: $\forall i \neq j$, $X_i, X_j$ indep.\newline
 $(X_i)_{i\in I}$ indep. family: $\forall J \subset I$ finite, $\forall A_i \subset \mathbb{R}$, $i \in J$:\newline
 $P(\cap_{i\in J} \{X_i \in A_i\}) = \prod_{i\in J} P(X_i \in A_i)$\newline
 $\Leftrightarrow \forall J \subset I$ finite, $\forall f_i: \mathbb{R} \to \mathbb{R}$, $i \in J$:\newline $E(\prod_{i\in J} f_i(X_i)) = \prod_{i\in J} E(f_i(X_i))$\newline
@@ -76,7 +74,7 @@ $\bullet$ $X,Y$ discrete: indep. $\Leftrightarrow \forall x \in \mathbb{R}^d, y 
 $\bullet$ $X$ discrete, $Y$ cont.: indep. $\Leftrightarrow \forall x \in \mathbb{R}^d, A \subset \mathbb{R}^{d'}$:\newline
 $P(X = x, Y \in A) = P(X = x) \int_A f_Y(y)dy$\newline
 \textbf{Lem 2.4.2 (Bayes):} $P(A|B) = \frac{P(B|A)P(A)}{P(B)}$\newline
-\textbf{Lem 2.4.3 (Total prob.):} $(A_i)$ partition, $P(A_i) > 0$:\newline
+\textbf{Total prob.:} $(A_i)$ partition, $P(A_i) > 0$:\newline
 $P(B) =\sum\limits_i P(B|A_i)P(A_i)$; $E(X) = \sum\limits_i E(X|A_i)P(A_i)$\newline
 $\text{Var}_P(X) = E_P((X-E_P(X))^2) = E_P(X^2) - E_P(X)^2$\newline
 $\text{Cov}_P(X,Y) = E_P(XY) - E_P(X)E_P(Y)$; $=0 \Rightarrow$ uncorrelated\newline
@@ -105,64 +103,61 @@ $\text{Pois}(\lambda)$: $\exp(\lambda(e^t-1))$ | $\text{Uni}(\{0,\ldots,n\})$: $
 $\text{Uni}(\{1,\ldots,n\})$: $\frac{e^{nt}-1}{n(1-e^{-t})}$ | Uni([a,b])$: $$\frac{e^{bt}-e^{at}}{t(b-a)}$\newline
 $\mathcal{N}(\mu,\sigma^2)$: $\exp(\mu t + \frac{\sigma^2t^2}{2})$ | $\text{Exp}(\lambda)$: $\frac{\lambda}{\lambda-t}$
 \subsection*{2.7 Inequalities and wLLN}
-\textbf{Thm 2.7.1 (Markov):} $X \geq 0 \Rightarrow P(X \geq a) \leq \frac{E(X)}{a}$, $\forall a > 0$\newline
-\textbf{Lem 2.7.2:} $g$ increasing, $g(X)$ r.v.: $P(X \geq a) \leq \frac{E(g(X))}{g(a)}$\newline
+\textbf{Markov's inequality:} $X \geq 0 \Rightarrow P(X \geq a) \leq \frac{E(X)}{a}$, $\forall a > 0$\newline
+\textbf{Chebychev:} $g$ increasing, $g(X)$ r.v.: $P(X \geq a) \leq \frac{E(g(X))}{g(a)}$\newline
 $p$-th moment: $P(X \geq a) \leq \frac{E(|X|^p)}{a^p}$, $\forall a > 0, p\in (0, +\infty)$\newline
 Exponential: $P(X \geq a) \leq e^{-\delta a}E(e^{\delta X})$, $\forall a > 0$, $\delta \in \mathbb{R}_+$\newline
-\textbf{Thm 2.7.3 (wLLN):} $X_1,X_2,\ldots$ identically distributed, $E(X_1^2) < \infty$,\newline
+\textbf{wLLN, 2^{nd}$ moment vers.: } $X_1,X_2,\ldots$ identically distributed, $E(X_1^2) < \infty$,\:
 $\text{Cov}(X_i,X_j) = 0$ if $i \neq j$, $\bar{S}_n = \frac{1}{n}\sum X_i$:\newline
 $P(|\bar{S}_n - \mu| \geq \varepsilon) \leq \frac{\sigma^2}{\varepsilon^2 n}$ $\Rightarrow$ $\bar{S}_n \xrightarrow{proba} \mu, (\mu = E(X_1), Var(X_1)= \sigma^2)$\newline 
 \bullet $E(XY)^2 \leq E(X^2)E(Y^2)$ \bullet $$|\text{Cov}(X,Y)|$$ \leq \sqrt{\text{Var}(X)}\sqrt{\text{Var}(Y)}$\newline
-\textbf{(Jensen):} $I \subset \mathbb{R}$, $g: I \to \mathbb{R}$ convex, $X: \Omega \to I$ r.v. $(P(X \in I) = 1)$:\newline
+\textbf{Jensen:} $I \subset \mathbb{R}$, $g: I \to \mathbb{R}$ convex, $X: \Omega \to I$ r.v. $(P(X \in I) = 1)$:\newline
 $E(g(X)) \geq g(E(X))$. For $h: I \to \mathbb{R}$ concave: $E(h(X)) \leq h(E(X))$
 
 \section*{3. Limit Theorems}
-\textbf{(Converg. in law):} $X,X_1,X_2,\ldots: \Omega \to \mathbb{R}$ r.v. $X_n \xrightarrow{\text{Law}} X$ \Leftrightarrow:\newline
+\textbf{Law:} $X,X_1,X_2,\ldots: \Omega \to \mathbb{R}$ r.v. $X_n \xrightarrow{\text{Law}} X$ \Leftrightarrow:\newline
 1. $F_{X_n}(t) \to F_X(t)$ $\forall t \in \mathbb{R}$: $F_X$ cont. at $t$\newline
 2. $E_P(\varphi(X_n)) \xrightarrow{n\to\infty} E_P(\varphi(X))$ $\forall \varphi: \mathbb{R} \to \mathbb{R}$ cont. \& bounded\newline
-\bullet $X,X_1,\ldots: \Omega \to \mathbb{R}$ r.v. Suppose $\exists \delta > 0$:
+\textbf{Law:} $X,X_1,\ldots: \Omega \to \mathbb{R}$ r.v. If $\exists \delta > 0$:
 $\sup_{|t| < \delta} E(e^{tX}) < +\infty$,\newline $\sup_{|t| < \delta} E(e^{tX_i}) < +\infty$ $\forall i \geq 1$, $E(e^{tX_n}) \xrightarrow{n\to\infty} E(e^{tX})$ $\forall |t| < \delta$\newline
 \Rightarrow \: $X_n \xrightarrow{\text{Law}} X$ as $n \to \infty$ and $\forall p \geq 1$: $E(X_n^p) \xrightarrow{n\to\infty} E(X^p)$\newline
-\bullet$X: \Omega \to \mathbb{R}$ r.v. with $\text{Image}(X) \subset \mathbb{Z}$, $X_1,X_2,\ldots: \Omega \to \mathbb{R}$ r.v.\newline
+\textbf{Law: } $X: \Omega \to \mathbb{R}$ r.v. with $\text{Image}(X) \subset \mathbb{Z}$\textbf{ !}, $X_1,X_2,\ldots: \Omega \to \mathbb{R}$ r.v.\newline
 $X_n \xrightarrow{\text{Law}} X$ iff $\forall k \in \mathbb{Z}$: $\lim\limits_{\epsilon \downarrow 0} \lim\limits_{n \to \infty} P(X_n \in (k-\epsilon, k+\epsilon)) = P(X=k)$\newline
-\bullet $X,X_1,X_2,\ldots: \Omega \to \mathbb{R}$ r.v. $X_n \xrightarrow{\text{Proba}} X$ \Leftrightarrow\: $\forall \epsilon > 0$:
+\textbf{Proba: } $X,X_1,\ldots: \Omega \to \mathbb{R}$ r.v. $X_n \xrightarrow{\text{Proba}} X$ \Leftrightarrow\: $\forall \epsilon > 0$:
 $\lim_{n\to\infty} P(|X - X_n| \geq \epsilon) = 0$\newline
-\bullet $X,X_1,\ldots: \Omega \to \mathbb{R}$ r.v. $X_n \xrightarrow{a.s.} X$ \Leftrightarrow\:
+\textbf{a.s: }$X,X_1,\ldots: \Omega \to \mathbb{R}$ r.v. $X_n \xrightarrow{a.s.} X$ \Leftrightarrow\:
 $P(\lim_{n\to\infty} X_n = X) = 1$\newline
 \textbf{Lem 3.1.3:} $P(\lim_{n\to\infty} X_n = X) = 1$ \Leftrightarrow\newline
 $\forall \epsilon > 0$, $\lim_{n\to\infty} P(\sup_{m \geq n} |X_m - X| \geq \epsilon) = 0$\newline
-\textbf{(Converg. in $L^p$):} $X_n \xrightarrow{L^p} X$:\:lim_{n \to \infty} $$E[|X_n-X|^p] = 0$\newline
-\textbf{Converg. hierarchy:} $L^\infty \Rightarrow$ a.s. $\Rightarrow$ Proba $\Rightarrow$ Law;\newline $L^\infty \Rightarrow$ $L^p \Rightarrow$ Proba $\Rightarrow$ Law\newline
-\textbf{(wLLN):} $X, X_1,\ldots$ indep. fam. of id. distr. r.v.\newline
+\textbf{L^{p}:$} $X_n \xrightarrow{L^p} X$:\:lim_{n \to \infty} $$E[|X_n-X|^p] = 0$\newline
+\bullet\: $L^\infty \Rightarrow$ a.s. $\Rightarrow$ Proba $\Rightarrow$ Law\newline 
+\bullet\:$L^\infty \Rightarrow$ $L^p \Rightarrow$ Proba $\Rightarrow$ Law\newline
+\textbf{wLLN:} $X, X_1,\ldots$ indep. fam. of id. distr. r.v.\newline
 If $E(|X|) < \infty$, $\forall \epsilon > 0$: $\lim_{n\to\infty} P(|\frac{1}{n}\sum_{i=1}^n X_i - E(X)| \geq \epsilon) = 0$\newline
 I.e. $\frac{1}{n}\sum_{i=1}^n X_i \xrightarrow{\text{Proba}} E(X)$ as $n \to \infty$\newline
-\textbf{(Quant. wLLN):} $X, X_1,\ldots$ indep. fam. of id. distr. r.v.\newline
+\textbf{Quant. wLLN:} $X, X_1,\ldots$ indep. fam. of id. distr. r.v.\newline
 If $E(X^2) < \infty$, $\forall \epsilon > 0$, $\forall n \geq 1$: $P(|\frac{1}{n}\sum_{i=1}^n X_i - E(X)| \geq \epsilon) \leq \frac{\text{Var}(X)}{\epsilon^2 n}$\newline
-\textbf{(sLLN):} $X, X_1,\ldots$ indep. fam. of id. distr. r.v.\newline
+\textbf{sLLN:} $X, X_1,\ldots$ indep. fam. of id. distr. r.v.\newline
 If $E(|X|) < \infty$: $\frac{1}{n}\sum_{i=1}^n X_i \xrightarrow{a.s.} E(X)$ as $n \to \infty$\newline
-\textbf{(CLT):} $X, X_1,\ldots$ indep. fam. of id. distr. r.v.\newline
+\textbf{CLT:} $X, X_1,\ldots$ indep. fam. of id. distr. r.v. \newline
 If $E(X^2) < \infty$: $\frac{1}{\sqrt{\sigma_X^2 n}}\sum_{i=1}^n (X_i - \mu) \xrightarrow{\text{Law}} \mathcal{N}(0,1)$ as $n \to \infty$\newline
-where $\mu = E(X)$, $\sigma_X^2 = \text{Var}(X)$\newline
+
 \textbf{(Berry-Esseen CLT):} $X,X_1,\ldots$ indep. fam. of id. distr. r.v.\newline
 If $E(|X|^3) < \infty$, $\forall n \geq 1,$(Z \sim \mathcal{N}(0,1)$, $\mu = E(X)$, $\sigma_X^2 = \text{Var}(X)):$\newline $\sup_{t \in \mathbb{R}} |P(\frac{1}{\sqrt{\sigma_X^2 n}}\sum_{i=1}^n (X_i - \mu) \leq t) - P(Z \leq t)| \leq \frac{0.5 E(|X|^3)}{\sqrt{n}}$\newline
-$X,X_1,\ldots$ indep. fam. of id. distr. r.v. If $\exists \delta > 0$: $E(e^{\delta|X|}) < \infty$:\newline
-$\frac{1}{\sqrt{\sigma_X^2 n}}\sum_{i=1}^n (X_i - \mu) \xrightarrow{\text{Law}} \mathcal{N}(0,1)$ as $n \to \infty$ ( $\mu = E(X)$, ...)
-\textbf{Lem 3.6.1:} $k \geq 2$, $p_1,\ldots,p_k \in (0,1)$: $p_1 + \cdots + p_k = 1$. For $n \geq 1$,\newline
-$(N_{n,1},\ldots,N_{n,k})$ multinomial r.v. with parameters $(n,k;p_1,\ldots,p_k)$. Then:\:
-$\sum_{i=1}^k \frac{(N_{n,i} - np_i)^2}{p_i} \xrightarrow{\text{Law}} \chi_{k-1}^2$ as $n \to \infty$
+\bullet\: $X,X_1,\ldots$ indep. fam. of id. distr. r.v. If $\exists \delta > 0$: $E(e^{\delta|X|}) < \infty$:\newline
+$\frac{1}{\sqrt{\sigma_X^2 n}}\sum_{i=1}^n (X_i - \mu) \xrightarrow{\text{Law}} \mathcal{N}(0,1)$ as $n \to \infty$ ( $\mu = E(X)$, ...)\newline
 \section*{4. Statistical Inference}
 \bullet $ For $n \geq 1$, $X_1,\ldots,X_n$ $n$-sample of law $\mathbb{P}_\theta$, $\hat{f_n} $ estimator of $\f(\theta)$.\newline
-$(\hat{f_n})_{n \geq 1}$ is \textit{convergent} (or \textit{consistent}) if $\hat{f_n}$ \xrightarrow{\text{Proba}} \: $f(\theta)$:\newline
+$(\hat{f_n})_{n \geq 1}$ is \textbf{convergent} (or \textbf{consistent}) if $\hat{f_n}$ \xrightarrow{\text{Proba}} \: $f(\theta)$:\newline
 $\forall \epsilon > 0$, $\forall \theta \in \Theta$: $\lim_{n\to\infty} P(|\hat{f_n}(X_1,\ldots,X_n) - f(\theta)| \geq \epsilon) = 0$\newline
-\bullet $For $n \geq 1$, $X_1,\ldots,X_n$ $n$-sample of law $\mathbb{P}_\theta$, $\hat{f}$ estimator of $f(\theta)$.\newline $\text{Bias}_\theta(\hat{f}) = E(\hat{f}(X_1,\ldots,X_n)) - f(\theta)$\newline
+\bullet\: $For $n \geq 1$, $X_1,\ldots,X_n$ $n$-sample of law $\mathbb{P}_\theta$, $\hat{f}$ estimator of $f(\theta)$.\newline $\text{Bias}_\theta(\hat{f}) = E(\hat{f}(X_1,\ldots,X_n)) - f(\theta)$\newline
 $\hat{f}$ is \textit{unbiased} if $\forall \theta \in \Theta$: $\text{Bias}_\theta(\hat{f}) = 0$. Otherwise \textit{biased}\newline
-\bullet $For $n \geq 1$, $X_1,\ldots,X_n$ $n$-sample of law $\mathbb{P}_\theta$, $\hat{f}_n$ estimator of $f(\theta)$.
+\bullet $ For $n \geq 1$, $X_1,\ldots,X_n$ $n$-sample of law $\mathbb{P}_\theta$, $\hat{f}_n$ estimator of $f(\theta)$.
 $(\hat{f}_n)_{n \geq 1}$ is \textit{asymptotically unbiased} if $\forall \theta \in \Theta$: $\lim_{n\to\infty} \text{Bias}_\theta(\hat{f}_n) = 0$\newline
-\bullet $ \text{Var}_\theta(\hat{f}_n) = \text{Var}(\hat{f}_n(X_1,\ldots,X_n))$\newline
 \bullet$ For $n \geq 1$, $X_1,\ldots$ $n$-sample of law $\mathbb{P}_\theta$, $\hat{f}_n$ estimator of $f(\theta)$.\newline
 $\hat{f}_n$ is asymptotically unbiased\:\textbf{\&}
  $\text{Var}_\theta(\hat{f}_n) \xrightarrow{n\to\infty} 0$\newline
-\Rightarrow \hat{f}_n$ is a convergent sequence of estimators
+\Rightarrow \hat{f}_n$ is a \textbf{convergent sequence of estimators}
 
 \subsubsection*{4.1.3 Example of estimators}
 Emp. mean: $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$ (!bias.); converg. if $E(|X_1|) < \infty$\newline
@@ -180,35 +175,38 @@ $\frac{n}{n-1}\hat{\tau}_n$ (!bias.)
 1. Find $h,g$: $\theta = h(E(g(X)))$ with $X \sim \mathbb{P}_\theta$\newline
 2. Use emp. mean $\frac{1}{n}\sum_{i=1}^n g(X_i)$ to est. $E(g(X))$\newline
 3. Estimator: $\hat{\theta}_n = h\left(\frac{1}{n}\sum_{i=1}^n g(X_i)\right)$
-
 \subsection*{4.3 MLE}
 \textbf{Def 4.2.1 (Likelihood):} $n \geq 1$, sample $X_1,\ldots,X_n$ of law $\mathbb{P}_\theta$. For realisation $x_1,\ldots,x_n$, likelihood $\mathcal{L}(x_1,\ldots,x_n|\theta)$:\newline
 $\bullet$ $\mathbb{P}_\theta$ discrete: $\mathcal{L}(x_1,\ldots,x_n|\theta) = P(X_1=x_1,\ldots,X_n=x_n) = \prod_{i=1}^n P(X_i=x_i) = \prod_{i=1}^n \mathbb{P}_\theta(\{x_i\})$\newline
 $\bullet$ $\mathbb{P}_\theta$ continuous: $\mathcal{L}(x_1,\ldots,x_n|\theta) = \prod_{i=1}^n f_{X_i}(x_i) = \prod_{i=1}^n f_\theta(x_i)$\newline
 \textbf{Def 4.2.2 (MLE):} Maximum likelihood estimator:\newline
-$\text{MLE}(X_1,\ldots,X_n) = \arg\max_\theta \mathcal{L}(X_1,\ldots,X_n|\theta)$
+$\text{MLE}(X_1,\ldots,X_n) = \arg\max_\theta \mathcal{L}(X_1,\ldots,X_n|\theta)$\newline
+\textbf{min/max : } 
+$f'(\theta^*) = 0$ (point critique)
+$f''(\theta^*) > 0 \Rightarrow$ min. loc.; $f''(\theta^*) < 0 \Rightarrow$ max. loc.; $f''(\theta^*) = 0 \Rightarrow$ non concluant
+\end{itemize}
 \subsection*{4.4 Confidence Intervals}
 \textbf{($q$-quantile):} $X$ r.v., $q > 0$ integer. $t \in \mathbb{R}$ is $k$th $q$-quantile of $X$ ($k \geq 1$) if: \: $P(X < t) \leq \frac{k}{q}$ AND $P(X \leq t) \geq \frac{k}{q}$\newline
 $X$ cont. r.v. with strictly pos. density: only one $k$th $q$-quantile. $\nu$-quantiles with $\nu \in (0,1)$: $k$th $\nu$-quantile is $t \in \mathbb{R}$: $P(X < t) \leq k\nu$ AND $P(X \leq t) \geq k\nu$\newline
-\textbf{Def 4.4.1 (CI):} $X_1,\ldots,X_n$ sample of law $\mathbb{P}_\theta$. $\alpha \in (0,1)$. Random interval $I = I(X_1,\ldots,X_n)$ not depending on $\theta$ is level $1-\alpha$ confidence interval for $f(\theta)$ if $\forall \theta \in \Theta$:\:
+\textbf{Def:} $X_1,\ldots,X_n$ sample of law $\mathbb{P}_\theta$. $\alpha \in (0,1)$. Random interval $I = I(X_1,\ldots,X_n)$ not depending on $\theta$ is level $1-\alpha$ \textbf{confidence interval} for $f(\theta)$ if $\forall \theta \in \Theta$:\:
 $P(f(\theta) \in I(X_1,\ldots,X_n)) = 1-\alpha$\newline
-\textbf{Def 4.4.2 (Excess CI):} CI $I = I(X_1,\ldots,X_n)$ is excess confidence interval for $f(\theta)$ at level $1-\alpha$ if\:
+\textbf{Def:} $I = I(X_1,\ldots,X_n)$ is excess \textbf{confidence interval} for $f(\theta)$ at level $1-\alpha$ if\:
 $P(f(\theta) \in I(X_1,\ldots,X_n)) \geq 1-\alpha$
 \subsection*{4.5 Hypothesis Testing}
 \subsubsection*{4.5.1 General principle}
 \textbf{Def 4.5.1:} "$\theta \in \Theta_0$" (usually $H_0$): null hypothesis\newline
 "$\theta \in \Theta \setminus \Theta_0$" (usually $H_1$): alternative hypothesis\newline
-\textbf{Def 4.5.2 (Rejection region):} $D$ event for r.v. $X_1,\ldots,X_n$. I.e.: if $X_i$ take values in $\mathbb{R}^d$, $D \subset (\mathbb{R}^d)^n$. In practice:\newline
-$D = \{(x_1,\ldots,x_n): T(x_1,\ldots,x_n) \in [a,b]\}$ for some statistic $T$ and $a < b$\newline
-\textbf{Def 4.5.3 (Test procedure):} Given $D$ rejection region, $H_0,H_1$ hypotheses:\newline
+\textbf{Rejection region:} $D$ event for r.v. $X_1,\ldots,X_n$. I.e.: if $X_i$ take values in $\mathbb{R}^d$, $D \subset (\mathbb{R}^d)^n$. In practice:\newline
+$D = \{(x_1,\ldots,x_n): T(x_1,\ldots,x_n) \in [a,b]\}$ for a statistic $T$, $a < b$\newline
+\textbf{Test procedure:} Given $D$ rejection region, $H_0,H_1$ hypotheses:\newline
 1. reject $H_0$ if $(X_1,\ldots,X_n) \in D$\newline
 2. do not reject $H_0$ if $(X_1,\ldots,X_n) \notin D$\newline
 Failure types:\newline
 $\bullet$ Type-I error: reject $H_0$ whereas correct\newline
 $\bullet$ Type-II error: do not reject $H_0$ whereas false\newline
-\textbf{Def 4.5.4 (Risk/Conf. level):} $\alpha \in [0,1]$. Test has risk level $\alpha$ or confidence level $1-\alpha$ if\newline
+\bullet\: $\alpha \in [0,1]$. Test has \textbf{risk level} $\alpha$ or \textbf{confidence level} $1-\alpha$ if\newline
 $\sup_{\theta \in \Theta_0} P((X_1,\ldots,X_n) \in D) = \alpha$\newline
-\textbf{Def 4.5.5 (Power):} Power of test:\newline
+\textbf{Power of test: }
 $\inf_{\theta \in \Theta_1} P((X_1,\ldots,X_n) \in D) = 1-\beta$\newline
 In particular: $\beta = \sup_{\theta \in \Theta_1} P((X_1,\ldots,X_n) \notin D)$
 
@@ -219,21 +217,22 @@ Under $H_0$: $Z_n \xrightarrow{\text{Law}} \chi_{k-1}^2$; Under $H_1$: $Z_n \xri
 Rejection: $D = \{Z_n > C\}$, $C$: $P(\chi_{k-1}^2 > C) = \alpha$
 
 \subsubsection*{4.5.3 t-test}
-$X \sim \text{Student}_t(\nu)$: $f_X(x) = \frac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\pi\nu}\Gamma(\frac{\nu}{2})}\left(1+\frac{x^2}{\nu}\right)^{-\frac{\nu+1}{2}}$\newline
 $Z \sim \mathcal{N}(0,1)$, $V \sim \chi_k^2$ indep. $\Rightarrow Z\sqrt{\frac{k}{V}} \sim \text{Student}_t(k)$\newline
-\textbf{One-sample:} $X_i \sim \mathcal{N}(\mu,\sigma^2)$, test $H_0$: $\mu = \mu_0$\newline
-$T = \frac{\sqrt{n}(\bar{X}_n - \mu_0)}{s_X} \sim \text{Student}_t(n-1)$ under $H_0$, $s_X^2 = \frac{1}{n-1}\sum(X_i - \bar{X}_n)^2$\newline
-\textbf{Two-sample:} $X_i \sim \mathcal{N}(\mu_X,\sigma^2)$, $Y_i \sim \mathcal{N}(\mu_Y,\sigma^2)$ indep., test $H_0$: $\mu_X = \mu_Y$\newline
-$T_n = \frac{\sqrt{n}(\bar{X}_n - \bar{Y}_n)}{\sqrt{s_X^2 + s_Y^2}} \sim \text{Student}_t(2n-2)$ under $H_0$\newline
-Rejection: $\{|T| \geq C\}$, $C$ from confidence level
+\textbf{One-sample:} $X_i \sim \mathcal{N}(\mu,\sigma^2)$, $ H_0$: $"\mu= E(X_1) = \mu_0 ", \mu_0\in\mathbb{R}$\newline
+$T = \frac{\sqrt{n}(\bar{X}_n - \mu_0)}{\sqrt{\frac{1}{n-1}\sum(X_i - \bar{X}_n)^2$}} \sim \text{Student}_t(n-1)$ under $H_0$\newline
+\textbf{Two-sample:} $X_i \sim \mathcal{N}(\mu_X,\sigma^2)$, $Y_i \sim \mathcal{N}(\mu_Y,\sigma^2)$ indep. \newline
+$T_n = \frac{\sqrt{n}(\bar{X}_n - \bar{Y}_n)}{\sqrt{s_X^2 + s_Y^2}} \sim \text{Student}_t(2n-2)$ under $H_0 = "\mu_X = \mu_Y"$\newline
+\to $Rejection: $\{|T| \geq C\} $ or $ \{|T_n| \geq C\}$, $C>0$ from confidence level
 
 \subsubsection*{4.5.4 F-test (variance comparison)}
 $X \sim \chi_{k_1}^2$, $Y \sim \chi_{k_2}^2$ indep. $\Rightarrow \frac{X/k_1}{Y/k_2} \sim \text{F}(k_1,k_2)$\newline
 $X \sim \text{F}(n,m)$: $E(X) = \frac{m}{m-2}$ $(m>2)$, $\text{Var}(X) = \frac{2m^2(m+n-2)}{n(m-2)^2(m-4)}$ $(m>4)$\newline
 \textbf{Equality of var:} $X_i \sim \mathcal{N}(\mu_X,\sigma_X^2)$, $Y_j \sim \mathcal{N}(\mu_Y,\sigma_Y^2)$ indep.\newline
 $S_X^2 = \frac{1}{n-1}\sum(X_i - \bar{X})^2$, $S_Y^2 = \frac{1}{m-1}\sum(Y_j - \bar{Y})^2$\newline
-$\frac{S_X^2}{S_Y^2} \stackrel{\text{Law}}{=} \frac{\sigma_X^2}{\sigma_Y^2} \cdot Z$, $Z \sim \text{F}(n-1,m-1)$. Under $H_0$ ($\sigma_X^2 = \sigma_Y^2$): $\frac{S_X^2}{S_Y^2} \sim \text{F}(n-1,m-1)$\newline
-Rejection: $D = \left\{\frac{S_X^2}{S_Y^2} \notin [1-c_\alpha^-,1+c_\alpha^+]\right\}$, $c_\alpha^\pm$ from $\text{F}(n-1,m-1)$ quantiles
+$\frac{S_X^2}{S_Y^2} \stackrel{\text{Law}}{=} \frac{\sigma_X^2}{\sigma_Y^2} \cdot Z$, $Z \sim \text{F}(n-1,m-1)$. \newline 
+$P(Z \leq 1 + c_\alpha^+) = 1 - \frac{\alpha}{2}, \quad P(Z \leq 1 - c_\alpha^-) = \frac{\alpha}{2}$\newline
+Under $H_0$ ($\sigma_X^2 = \sigma_Y^2$): $\frac{S_X^2}{S_Y^2} \sim \text{F}(n-1,m-1)$\newline
+Rejection: $D = \left\{\frac{S_X^2}{S_Y^2} \notin [1-c_\alpha^-,1+c_\alpha^+]\right\}$
 
 \subsubsection*{ANOVA (one-way)}
 $k$ groups, $X_{l,i} \sim \mathcal{N}(\mu_l,\sigma^2)$ indep., $n_l$ samples/group, $N = \sum n_l$\newline
@@ -244,17 +243,22 @@ $Z = \frac{Y_{\text{bet}}}{Y_{\text{in}}} \sim \text{F}(k-1,N-k)$ under $H_0$; $
 Rejection: $D = \{Z > c\}$, $P(\text{F}(k-1,N-k) > c) = \alpha$
 \subsection*{4.6 Comparing estimators}
 \subsubsection*{4.6.1 Mean square error}
-\textbf{Def 4.6.1 (MSE):} $n \geq 1$, $X_1,\ldots,X_n$ $n$-sample of law $\mathbb{P}_\theta$, $\hat{f}$ estimator of $f(\theta)$. Mean square error:\newline
+\bullet\: $n \geq 1$, $X_1,\ldots,X_n$ $n$-sample of law $\mathbb{P}_\theta$, $\hat{f}$ estimator of $f(\theta)$. \newline\textbf{Mean square error:}\: 
 $\text{MSE}_\theta(\hat{f}) = E((\hat{f}(X_1,\ldots,X_n) - f(\theta))^2)$\newline
-
-\textbf{Def 4.6.2 (MMSE):} $n \geq 1$, $X_1,\ldots,X_n$ $n$-sample of law $\mathbb{P}_\theta$, $f(\theta)$ quantity to estimate. Minimal mean square error estimator of $f(\theta)$:\newline
+\bullet \:$n \geq 1$, $X_1,\ldots,X_n$ $n$-sample of law $\mathbb{P}_\theta$, $f(\theta)$ quantity to estimate. \textbf{Minimal mean square error estimator} of $f(\theta)$:\newline
 $\text{MMSE}_{f(\theta)}(X_1,\ldots,X_n) = \arg\min_{\hat{f}} E((\hat{f}(X_1,\ldots,X_n) - f(\theta))^2)$\newline
-where minimum over all estimators $\hat{f}(X_1,\ldots,X_n)$ of $f(\theta)$. Existence non-trivial, generally not easy to compute\newline
-
+, min. over all estimators $\hat{f}(X_1,\ldots,X_n)$ of $f(\theta)$. Existence non-trivial, generally not easy to compute
 \subsubsection*{4.6.2 Asymptotic normality}
-\textbf{Def 4.6.3 (Asymp. normal):} $n \geq 1$, $X_1,\ldots,X_n$ $n$-sample of law $\mathbb{P}_\theta$, $\hat{f}_n$ estimator of $f(\theta)$. $\hat{f}_n$ is asymptotically normal sequence of estimators if:\newline
+\bullet\: $n \geq 1$, $X_1,\ldots,X_n$ $n$-sample of law $\mathbb{P}_\theta$, $\hat{f}_n$ estimator of $f(\theta)$. $\hat{f}_n$ is \textbf{asymptotically normal sequence of estimators} if:\newline
 1. $\hat{f}_n$ is convergent\newline
 2. $\exists C \geq 0$: $\sqrt{n}(\hat{f}_n - f(\theta)) \xrightarrow{\text{Law}} \mathcal{N}(0,C)$ as $n \to \infty$
+\subsection*{Other}
+e^x &= \sum_{k=0}^{n} \frac{x^k}{k!} + o(x^n);
+\ln(1+x) &= \sum_{k=1}^{n} (-1)^{k+1}\frac{x^k}{k} + o(x^n);
+\sin(x) &= \sum_{k=0}^{n} (-1)^k \frac{x^{2k+1}}{(2k+1)!} + o(x^{2n+1});\cos(x) &= \sum_{k=0}^{n} (-1)^k \frac{x^{2k}}{(2k)!} + o(x^{2n});\frac{1}{1-x} &= \sum_{k=0}^{n} x^k + o(x^n)\newline
+
+
+
 
 
 
